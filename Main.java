@@ -6,7 +6,7 @@ Purpose Details: Pizza ordering application
 Course: IST 242
 Author: Alex Hirsh
 Date Developed: 3/13/19
-Last Date Changed: 3/25/19
+Last Date Changed: 3/26/19
 Rev: 4
  */
 
@@ -25,10 +25,10 @@ import java.util.Scanner;
             final char EXIT_CODE = 'E';
             final char CUST_CODE = 'C';
             final char MENU_CODE = 'M';
-            final char ORDE_CODE = 'O';
-            final char PRNT_ORDE = 'B';
-            final char TRAN_CODE = 'T';
-            final char TRAN_PRNT = 'N';
+            final char ORDE_CODE = 'B';
+            final char PRNT_ORDE = 'O';
+            final char TRAN_CODE = 'N';
+            final char TRAN_PRNT = 'T';
             final char PRNT_CUST = 'P';
             final char HELP_CODE = '?';
             char userAction;
@@ -40,25 +40,25 @@ import java.util.Scanner;
 
 
 
-            Customer cust1 = new Customer(1);
-            Customer cust2 = new Customer(2);
-            Customer cust3 = new Customer(3);
-            Customer cust4 = new Customer(4);
+            //Customer cust1 = new Customer(1);
+            //Customer cust2 = new Customer(2);
+            //Customer cust3 = new Customer(3);
+            //Customer cust4 = new Customer(4);
 
             Menu menu1 = new Menu(1, "Plain",9.75);
             Menu menu2 = new Menu(2, "Meat",10.75);
             Menu menu3 = new Menu(3, "Extra",10.00);
             Menu menu4 = new Menu(4, "Veggie",10.25);
 
-            Order order1 = new Order(1);
-            Order order2 = new Order(2);
-            Order order3 = new Order(3);
-            Order order4 = new Order(4);
+            //Order order1 = new Order(1);
+            //Order order2 = new Order(2);
+            //Order order3 = new Order(3);
+           // Order order4 = new Order(4);
 
-            Transaction trans1 = new Transaction(1);
-            Transaction trans2 = new Transaction(1);
-            Transaction trans3 = new Transaction(1);
-            Transaction trans4 = new Transaction(1);
+           // Transaction trans1 = new Transaction();
+           // Transaction trans2 = new Transaction();
+           // Transaction trans3 = new Transaction();
+           // Transaction trans4 = new Transaction();
 
 
 
@@ -67,20 +67,20 @@ import java.util.Scanner;
             mList.add(menu3);
             mList.add(menu4);
 
-            cList.add(cust1);
-            cList.add(cust2);
-            cList.add(cust3);
-            cList.add(cust4);
+           // cList.add(cust1);
+          //  cList.add(cust2);
+           // cList.add(cust3);
+            //cList.add(cust4);
 
-            oList.add(order1);
-            oList.add(order2);
-            oList.add(order3);
-            oList.add(order4);
+           // oList.add(order1);
+            //oList.add(order2);
+           // oList.add(order3);
+            //oList.add(order4);
 
-            tList.add(trans1);
-            tList.add(trans2);
-            tList.add(trans3);
-            tList.add(trans4);
+           // tList.add(trans1);
+           // tList.add(trans2);
+           // tList.add(trans3);
+           // tList.add(trans4);
 
             userAction = getAction(PROMPT_ACTION);
 
@@ -125,26 +125,22 @@ import java.util.Scanner;
         }
         public Order addOrder(){
             int orderCount = 1;
-            Order order = new Order(orderCount++);
             Scanner scnr = new Scanner(System.in);
-            System.out.println("Enter Order ID: ");
-            order.setOrderId(scnr.nextLine());
-            System.out.println("Enter Items in Order");
-            order.setMenuItem(menuItem.valueOf(scnr.nextLine()));
-            System.out.println("Order Total: ");
-            order.setOrderTotal(scnr.nextLine());
+            Order order = new Order(orderCount++);
+            System.out.println("Enter Your Name: ");
+            order.setCustomerName(scnr.nextLine());
+            System.out.println("Enter Items in Order:");
+            order.setMenuItem(MenuItem.valueOf(scnr.nextLine()));
             return order;
 
         }
         public Transaction addTransaction() {
             int transCount = 1;
+            int ordertransCount = 1;
             Transaction transaction = new Transaction(transCount++);
             Scanner scnr = new Scanner(System.in);
-            System.out.println("Transaction ID: ");
-            transaction.setTransactionId(scnr.nextLine());
-            System.out.println("Order: ");
-            transaction.setOrder(scnr.nextLine());
-            System.out.println("Payment Type: ");
+            transaction.setOrderId(ordertransCount++);
+            System.out.println("Payment Type: Cash, Credit, or Debit?");
             transaction.setPaymentType(PaymentType.valueOf(scnr.nextLine()));
             return transaction;
         }

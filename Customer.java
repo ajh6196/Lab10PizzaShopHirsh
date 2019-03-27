@@ -13,8 +13,6 @@ public class Customer {
         this.customerId = customerId;
     }
 
-    public static void printCustomer(ArrayList<Customer> cList) {
-    }
 
 
     //Setters and Getters
@@ -38,7 +36,7 @@ public class Customer {
         this.customerPhoneNumber = customerPhoneNumber;
     }
 
-    public static void addCustomer(ArrayList<Customer> cList) {
+    public static void printCustomer(ArrayList<Customer> cList) {
         for (Customer customer: cList){
             System.out.println("Customer ID:" + customer.getcustomerId());
             System.out.println("Customer Name:" + customer.getCustomerName());

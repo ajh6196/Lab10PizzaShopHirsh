@@ -8,14 +8,14 @@ public class Transaction {
 
     //Class Level Variables - Protect the data
     private int transactionId;
-    private Order order;
+    private int orderId;
     private PaymentType paymentType;
 
     //Constructor Method
     public Transaction(int transactionId){
 
         this.transactionId = transactionId;
-        this.order = order;
+        this.orderId = orderId;
         this.paymentType = paymentType;
     }
 
@@ -28,12 +28,12 @@ public class Transaction {
         return transactionId;
     }
 
-    public Order getOrder() {
-        return order;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public PaymentType getPaymentType() {
@@ -49,9 +49,8 @@ public class Transaction {
     }
     public static void printTransactions(ArrayList<Transaction> tList){
         for (Transaction transaction: tList){
-            System.out.println("Cash, Credit, or Debit");
             System.out.println("Transaction ID: " + transaction.getTransactionId());
-            System.out.println("Order:" + transaction.getOrder());
+            System.out.println("Order: " + transaction.getOrderId());
             System.out.println("PaymentType: " + transaction.getPaymentType());
         }
     }
@@ -61,9 +60,7 @@ public class Transaction {
         this.transactionId = transactionId;
     }
 
-    public void setOrder(String nextLine) {
-        this.order = order;
-    }
+
 
     public void setPaymentType(String nextLine) {
         this.paymentType = paymentType;

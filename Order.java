@@ -2,14 +2,14 @@ package edu.psu.ist;
 
 import java.awt.*;
 import java.util.ArrayList;
-enum menuItem {Plain, Meat, Extra, Veggie}
+enum MenuItem {Plain, Meat, Extra, Veggie}
 public class Order {
     //Class Level Variables - Protect the data
     private int orderId;
     private String itemsInOrder;
     private double orderTotal;
-    private menuItem menuItem;
-    private Customer customer;
+    private MenuItem menuItem;
+    private String customerName;
 
     //Constructor Method
     public Order(int orderId){
@@ -18,7 +18,7 @@ public class Order {
         this.itemsInOrder = itemsInOrder;
         this.orderTotal = orderTotal;
         this.menuItem = menuItem;
-        this.customer = customer;
+        this.customerName = customerName;
     }
 
 
@@ -27,7 +27,7 @@ public class Order {
 
         return orderId;
     }
-    public void setorderId(int _orderId) {
+    public void setorderId(int orderId) {
 
         this.orderId = orderId;
     }
@@ -45,26 +45,24 @@ public class Order {
         this.orderTotal = orderTotal;
     }
 
-    public menuItem getmenuItem() {
+    public MenuItem getmenuItem() {
         return menuItem;
     }
-    public void setMenuItem(menuItem menuItem){
+    public void setMenuItem(MenuItem menuItem){
         this.menuItem = menuItem;
     }
-    public Customer getCustomer(){
-        return customer;
+    public String getCustomerName(){
+        return customerName;
     }
-    public void setCustomer(Customer customer){
-        this.customer = customer;
+    public void setCustomerName(String customerName){
+        this.customerName = customerName;
     }
 
     public static void printOrders(ArrayList<Order> oList) {
         for (Order order: oList){
-            System.out.println(order.getorderId());
-            System.out.println(order.getItemsInOrder());
-            System.out.println(order.getOrderTotal());
-            System.out.println(order.getmenuItem());
-            System.out.println(order.getCustomer());
+            System.out.println("Order ID: " + order.getorderId());
+            System.out.println("Menu Item: " + order.getmenuItem());
+            System.out.println("Customer Name: " + order.getCustomerName());
         }
 
     }
